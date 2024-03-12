@@ -55,3 +55,24 @@ Existe também um sistema de rotas chamado Pages Router, que era o padrão do Ne
 
 ### 3. Componentes
 Componentes podem ser criados e importados da mesma forma que usamos no React. No next podemos utilizar o _@_ como atalho para a pasta _src_.
+
+### 4. Link
+O Next.js possui o componente Link que permite a navegação entre páginas sem que a página seja recarregada (client side).
+
+![alt text](readme-images/link.png)
+
+#### 4.1. Prefetch
+O Link automaticamente faz o prefetch de páginas estáticas, ou seja, o Next.js já carrega a página em segundo plano para que ela esteja disponível quando o usuário clicar no link. (true é o padrão)
+
+O comportamento do prefetch só é possível ser analisado em produção (aba network).
+
+_npm run build_ + _npm run start_
+
+![alt text](readme-images/prefetch.png)
+ 
+#### 4.2. Link Interno e Scroll
+O comportamento de scroll interno funciona da mesma forma que o <a>. É possível desabilitar o scroll automático com scroll={false}.
+
+![alt text](readme-images/scroll.png)
+
+![alt text](readme-images/scrollpage.png)
