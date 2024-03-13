@@ -1,5 +1,10 @@
+import Width from "@/components/width";
+
 export default function Sobre() {
   return (
-    <div>page</div>
-  )
+    <main>
+      <h1>page</h1>
+      <Width />
+    </main>
+  );
 }
