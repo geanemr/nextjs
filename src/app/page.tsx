@@ -1,6 +1,4 @@
-import Menu from "@/components/menu";
-
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <h1>Home</h1>
