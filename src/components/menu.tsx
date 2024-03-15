@@ -9,6 +9,9 @@ export default function Menu() {
       <li>
         <Link href="/sobre">Sobre</Link>
       </li>
+      <li>
+        <Link href="/imc">Cálculo de IMC</Link>
+      </li>
     </ul>
   );
 }

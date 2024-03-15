@@ -100,4 +100,20 @@ Evite definir páginas (page.tsx) como Client Components, mantenha elas sempre c
 #### 5.4. Pré-renderização
 Client Components são pré-renderizados no servidor, durante a pré-renderização, não temos acesso a APIs web como window e document. Por isso erros como document is not defined podem ocorrer.
 
-Se o código estiver dentro do useEffect, ele só será ativado no cliente, por isso não teremos problemas. Mas códigos fora do useEffect podem causar erros.
+Se o código estiver dentro do useEffect, ele só será ativado no cliente (será hidratado depois, a chamada hydration), por isso não teremos problemas. Mas códigos fora do useEffect podem causar erros.
+__Caso tenha algum componente no qual haja a necessidade de ter acesso à api Web fora do useEffect. é possível carregar esse componente de forma dinâmica e disabilitar a pré renderização através do next/dynamic:_
+
+![alt text](readme-images/dynamic.png)
+
+### 6. Fetch
+#### 6.1. Server Fetch
+Server Components podem ser definidos como funções assíncronas, assim podemos fazer o fetch de dados no servidor e retornar o componente com os dados já disponíveis.
+
+Se você estiver criando uma aplicação Full-Stack, você pode também acessar o banco de dados diretamente no componente.
+_Obs: o console.log() em um server component, aparece no terminal e não no browser._
+![alt text](readme-images/serverFetch.png)
+
+#### 6.2. Client Fetch
+Podemos ainda fazer o fetch de dados no client, utilizando o useEffect e useState. Porém esses dados não serão pré-renderizados no servidor.
+
+![alt text](readme-images/clientFetch.png)
