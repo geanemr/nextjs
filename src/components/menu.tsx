@@ -12,6 +12,9 @@ export default function Menu() {
       <li>
         <Link href="/imc">Cálculo de IMC</Link>
       </li>
+      <li>
+        <Link href="/produtos">Produtos</Link>
+      </li>
     </ul>
   );
 }
