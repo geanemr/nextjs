@@ -3,6 +3,33 @@
 # Next.js
 </div>
 
+## Índice
+- [1. Next.js vs React](#1-nextjs-vs-react)
+- [1.1. Renderizações](#11-renderizações)
+- [2. App Router](#2-app-router)
+- [2.1. layout.tsx](#21-layouttsx)
+- [2.1.1. metadata](#211-metadata)
+- [2.2. App Router e Pages Router](#22-app-router-e-pages-router)
+- [3. Componentes](#3-componentes)
+- [4. Link](#4-link)
+- [4.1. Prefetch](#41-prefetch)
+- [4.2. Link Interno e Scroll](#42-link-interno-e-scroll)
+- [5. Server e Client Components](#5-server-e-client-components)
+- [5.1. Server Components](#51-server-components)
+- [5.2. Client Components](#52-client-components)
+- [5.3. Nested Components](#53-nested-components)
+- [5.4. Pré-renderização](#54-pré-renderização)
+- [6. Fetch](#6-fetch)
+- [6.1. Server Fetch](#61-server-fetch)
+- [6.2. Client Fetch](#62-client-fetch)
+- [7. Dynamic Routes](#7-dynamic-routes)
+- [7.1. [...slugs]](#71-slugs)
+- [7.2. Outras Opções](#72-outras-opções)
+- []()
+- []()
+
+
+
 ### 1. Next.js vs React
 **React(Vite/CRA):**
 * Executa no navegador (client)
@@ -45,7 +72,7 @@ O arquivo _layout.tsx_ é o layout padrão de todas as páginas. Ele é importad
 
 Na raiz ele é necessário para adicionar o html e o body. Porém nas demais rotas ele é opcional.
 
-#### 2.1.1 metadata
+#### 2.1.1. metadata
 Exportar um objeto const metadata, irá adicionar as meta tags na página. Pode ser exportado de qualquer arquivo de rota, como page.tsx ou layout.tsx.
 
 ![alt text](readme-images/layout.png)
@@ -117,3 +144,30 @@ _Obs: o console.log() em um server component, aparece no terminal e não no brow
 Podemos ainda fazer o fetch de dados no client, utilizando o useEffect e useState. Porém esses dados não serão pré-renderizados no servidor.
 
 ![alt text](readme-images/clientFetch.png)
+
+### 7. Dynamic Routes
+Uma pasta com o nome entre colchetes [id], indica que a rota é dinâmica. id será o nome do parâmetro que será passado para a página. O acesso ao parâmetro fica dentro da propriedade params.
+
+![alt text](readme-images/produtosRoute.png)
+
+![alt text](readme-images/produtosRouteId.png)
+
+_http://localhost:3000/produtos/1:_
+
+![alt text](readme-images/produtosPageId.png)
+
+#### 7.1. [...slugs]
+Se o nome da pasta conter ... antes do nome do parâmetro, será possível acessar rotas como: _/curso/nome-do-curso/aula/nome-da-aula_, automaticamente uma array com os parâmetros será passado para a página.
+
+![alt text](readme-images/slugRoute.png)
+
+![alt text](readme-images/slugPage.png)
+
+_http://localhost:3000/cursos/1:_
+
+_console.log:_
+
+![alt text](readme-images/slugConsole.png)
+
+#### 7.2. Outras Opções
+https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes
