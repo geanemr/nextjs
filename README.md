@@ -25,9 +25,14 @@
 - [7. Dynamic Routes](#7-dynamic-routes)
 - [7.1. [...slugs]](#71-slugs)
 - [7.2. Outras Opções](#72-outras-opções)
+- [8. Renderização](#8-renderização)
+- [8.1. Build](#81-build)
+- [8.2 Static e Dynamic](#82-static-e-dynamic)
+- [8.3. SSG](#83-ssg-static-site-generation)
+- [8.4. SSR](#84-ssr-server-side-rendering)
+- [8.5. CSR](#85-csr-client-side-rendering)
 - []()
 - []()
-
 
 
 ### 1. Next.js vs React
@@ -171,3 +176,52 @@ _console.log:_
 
 #### 7.2. Outras Opções
 https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes
+
+### 8. Renderização
+#### 8.1 Build
+O Next.js possui dois ambientes, o de desenvolvimento e o de produção.
+
+Desenvolvimento: _npm run dev_.
+
+Produção: _npm run build_ e _npm run start_.
+
+Durante a build, ele verifica erros, gera as rotas e faz o pré-render de páginas estáticas (SSG).
+
+Ele decide automaticamente qual tipo de renderização será utilizada, isso vai depender do tipo de página, api's utilizadas e configurações.
+
+__○  (Static)   prerendered as static content__
+
+__λ  (Dynamic)  server-rendered on demand using Node.js__
+
+![alt text](readme-images/build.png)
+
+#### 8.2. Static e Dynamic
+**○ Static:**
+* Pré-render de páginas estáticas
+* Gera um arquivo .html para cada página
+* Carregando mais rápido
+
+**λ Dynamic:**
+* Rotas dinâmicas
+* Execução de apis dinâmicas (como useSearchParams)
+* Quando o fetch não possui cache
+* _export const dynamic = 'force-dynamic'_ para forçar a página a ser dinâmica. Com isso, inicialmente o carregamento fica um pouco mais lento porque o cachê da página automaticamente para de ser feito
+* _export const revalidate = 0_;
+![alt text](readme-images/revalidate.png)
+
+#### 8.3. SSG (Static Site Generation)
+O Next.js gera uma página estática (.html) da página no momento da build.
+
+_Incremental Static Regeneration (ISR)_
+
+Se a página possuir dados dinâmicos o Next irá renderizar uma nova versão da página no servidor, quando os dados forem revalidados.
+
+#### 8.4. SSR (Server Side Rendering)
+O processo de renderização no servidor ocorre tanto para páginas estáticas quanto para páginas dinâmicas.
+
+Porém as dinâmicas são renderizadas em todos os acessos.
+
+#### 8.5. CSR (Client Side Rendering)
+O CSR ocorre quando parte da página é renderizada no cliente. Essa é a forma como os SPA's (Single Page App) funcionam. Isso pode garantir dados atualizados e um rápido carregamento inicial.
+
+Porém pode afetar o SEO, acessibilidade e a experiência do usuário (UX).
