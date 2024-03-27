@@ -31,7 +31,11 @@
 - [8.3. SSG](#83-ssg-static-site-generation)
 - [8.4. SSR](#84-ssr-server-side-rendering)
 - [8.5. CSR](#85-csr-client-side-rendering)
-- []()
+- [9. Route Handlers](#9-route-handlers)
+- [9.1. route.ts](#91-routets)
+- [9.2. API's Servidor/Web](#92-apis-servidorweb)
+- [9.3 Cookies](#93-cookies)
+- [9.4 Request](#94-request)
 - []()
 
 
@@ -207,6 +211,7 @@ __λ  (Dynamic)  server-rendered on demand using Node.js__
 * Quando o fetch não possui cache
 * _export const dynamic = 'force-dynamic'_ para forçar a página a ser dinâmica. Com isso, inicialmente o carregamento fica um pouco mais lento porque o cachê da página automaticamente para de ser feito
 * _export const revalidate = 0_;
+
 ![alt text](readme-images/revalidate.png)
 
 #### 8.3. SSG (Static Site Generation)
@@ -225,3 +230,38 @@ Porém as dinâmicas são renderizadas em todos os acessos.
 O CSR ocorre quando parte da página é renderizada no cliente. Essa é a forma como os SPA's (Single Page App) funcionam. Isso pode garantir dados atualizados e um rápido carregamento inicial.
 
 Porém pode afetar o SEO, acessibilidade e a experiência do usuário (UX).
+
+### 9. Route Handlers
+#### 9.1. route.ts
+Podemos criar rotas de api's JSON no Next.js. Basta criar um arquivo chamado route.ts dentro de uma rota, exemplo: api/route.ts.
+
+Possui os métodos GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS.
+
+Não é possível ter page.tsx e route.ts na mesma rota.
+
+Pode ser usado para esconder chaves de api's, por exemplo.
+
+![alt text](readme-images/api.png)
+
+![alt text](readme-images/localhostapi.png)
+
+#### 9.2. API's Servidor/Web
+Acesso a api's web do servidor como cookies, headers, etc.
+
+![alt text](readme-images/cookies.png)
+_Salvando o token em cookies com método secure, ao invés de no localStorage, eu projeto ele, e mesmo digitando "document.cookies" no console, não é possível ter acesso a ele_
+
+![alt text](readme-images/header.png)
+
+#### 9.3. Cookies
+O Next.js possui a função cookies que permite acessar e criar HTTP Cookies.
+
+![alt text](readme-images/cookies2.png)
+
+#### 9.4. Request
+Acesso ao objeto request do servidor.
+
+https://nextjs.org/docs/app/api-reference/functions/next-request
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Request
+![alt text](readme-images/request.png)
