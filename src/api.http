@@ -2,3 +2,6 @@ GET http://localhost:3000/api
 
 ###
 POST http://localhost:3000/api?busca=camisa
+
+
+# Feito com a extensão REST Client
