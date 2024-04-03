@@ -264,4 +264,5 @@ Acesso ao objeto request do servidor.
 https://nextjs.org/docs/app/api-reference/functions/next-request
 
 https://developer.mozilla.org/pt-BR/docs/Web/API/Request
+
 ![alt text](readme-images/request.png)
